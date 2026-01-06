@@ -19,19 +19,19 @@ The project is designed with a strong focus on **usability, accuracy, and real-w
 <p align="center">
   <img src="./screenshots/homepage.png" width="45%" alt="Home Page"/>
   &nbsp;&nbsp;
-  <img src="./screenshots/about.png" width="45%" alt="About Us Page"/>
-</p>
-
-<p align="center">
-  <img src="./screenshots/contactus.png" width="45%" alt="Contact Us Page"/>
-  &nbsp;&nbsp;
-  <img src="./screenshots/premium.png" width="45%" alt="Premium Page"/>
+  <img src="./screenshots/aboutus.png" width="45%" alt="About Us Page"/>
 </p>
 
 <p align="center">
   <sub><b>Home</b></sub>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <sub><b>About Us</b></sub>
+</p>
+
+<p align="center">
+  <img src="./screenshots/contactus.png" width="45%" alt="Contact Us Page"/>
+  &nbsp;&nbsp;
+  <img src="./screenshots/premium.png" width="45%" alt="Premium Page"/>
 </p>
 
 <p align="center">
