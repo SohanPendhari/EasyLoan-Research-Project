@@ -122,7 +122,7 @@ The project is designed with a strong focus on **usability, accuracy, and real-w
 ## 🎥 Project Demo (Video Output)
 
 ▶ **Watch the complete project demo:**  
-[Click here to watch the demo video](./screenshots/20260106-2045-29.9749483.mp4)
+[Click here to watch the demo video](./screenshots/easyloan-demo.mp4)
 
 > The demo video showcases all major features and user workflows of the EasyLoan platform.
 
