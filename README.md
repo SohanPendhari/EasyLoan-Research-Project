@@ -17,13 +17,13 @@ The project is designed with a strong focus on **usability, accuracy, and real-w
 ## 🖼️ Application Screens
 
 <p align="center">
-  <img src="./screenshots/home.png" width="45%" alt="Home Page"/>
+  <img src="./screenshots/homepage.png" width="45%" alt="Home Page"/>
   &nbsp;&nbsp;
   <img src="./screenshots/about.png" width="45%" alt="About Us Page"/>
 </p>
 
 <p align="center">
-  <img src="./screenshots/contact.png" width="45%" alt="Contact Us Page"/>
+  <img src="./screenshots/contactus.png" width="45%" alt="Contact Us Page"/>
   &nbsp;&nbsp;
   <img src="./screenshots/premium.png" width="45%" alt="Premium Page"/>
 </p>
