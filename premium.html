@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plans | EasyLoan</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #f4f9ff;
+        color: #333;
+      }
+      header {
+        background: linear-gradient(135deg, #2c3e50, #2980b9);
+        color: #fff;
+        padding: 50px 20px;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+      }
+      header p {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+      section {
+        max-width: 1100px;
+        margin: auto;
+        padding: 40px 20px;
+      }
+      h2 {
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: #2c3e50;
+      }
+      .plans {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+      .plan {
+        background: #fff;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .plan:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+      }
+      .plan h3 {
+        margin-top: 0;
+        color: #2980b9;
+        font-size: 1.5rem;
+      }
+      .price {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #2c3e50;
+        margin: 15px 0;
+      }
+      .plan ul {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+        text-align: left;
+      }
+      .plan ul li {
+        margin: 10px 0;
+        font-size: 1rem;
+      }
+      .plan ul li i {
+        color: #2980b9;
+        margin-right: 10px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 20px;
+        background: #2980b9;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background 0.3s;
+      }
+      .btn:hover {
+        background: #1f6391;
+      }
+      .free {
+        border: 2px solid #2980b9;
+      }
+      .disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+      .tag {
+        display: inline-block;
+        background: #f39c12;
+        color: #fff;
+        font-size: 0.8rem;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+      footer {
+        background: linear-gradient(135deg, #2c3e50, #2980b9);
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="#" class="logo">EasyLoan</a>
+      <span class="menu-toggle"</span>
+      <ul id="menu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="premium.html">premium</a></li>
+        <li><a href="contactus.html">contact us</a></li>
+        <li><a href="aboutus.html">about us</a></li>
+        <!-- <li class="account">
+          <a href="#"><i class="fa-regular fa-circle-user"></i></a>
+          <div class="dropdown" id="accountMenu">
+            <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+            <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+            <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+          </div>
+        </li> -->
+
+
+      </ul>
+    </nav>
+    
+    <header>
+      <h1>Our Plans</h1>
+      <p>Choose the right plan for smarter loan assistance</p>
+    </header>
+
+    <section>
+      <h2>Compare Our Plans</h2>
+      <div class="plans">
+        <!-- Free Plan -->
+        <div class="plan free">
+          <h3>Free</h3>
+          <div class="price">₹0<span>/month</span></div>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> AI Chatbot Assistance</li>
+            <li><i class="fas fa-check-circle"></i> Loan Eligibility Check</li>
+            <li><i class="fas fa-check-circle"></i> Email Support</li>
+            <li><i class="fas fa-check-circle"></i> Smart Loan Ranking</li>
+          </ul>
+          <a href="home.html" class="btn">Get Started</a>
+        </div>
+
+        <!-- Basic Plan -->
+        <div class="plan">
+          <h3>Basic</h3>
+          <div class="price">₹199<span>/month</span></div>
+          <span class="tag">Coming Soon</span>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Everything in Free</li>
+            <li>
+              <i class="fas fa-check-circle"></i> Faster Chatbot Responses
+            </li>
+            <li><i class="fas fa-check-circle"></i> Priority Email Support</li>
+          </ul>
+          <a href="#" class="btn disabled">Under Development</a>
+        </div>
+
+        <!-- Standard Plan -->
+        <div class="plan">
+          <h3>Standard</h3>
+          <div class="price">₹499<span>/month</span></div>
+          <span class="tag">Coming Soon</span>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> All Basic Features</li>
+            <li><i class="fas fa-check-circle"></i> Advanced Loan Ranking</li>
+            <li><i class="fas fa-check-circle"></i> Phone Support</li>
+          </ul>
+          <a href="#" class="btn disabled">Under Development</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 EasyLoan. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

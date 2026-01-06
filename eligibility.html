@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loan Eligibility Check | EasyLoan</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Add specific styles for eligibility page for better layout */
+      .eligibility-container {
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .eligibility-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+      .results-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      .results-table th,
+      .results-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      .results-table th {
+        background-color: #2980b9;
+        color: white;
+        text-transform: uppercase;
+      }
+      .results-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      #noResults {
+        text-align: center;
+        padding: 20px;
+        color: #e74c3c;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="eligibility-container">
+      <h2>Loan Eligibility Checker</h2>
+      <form id="eligibilityForm" class="eligibility-form">
+        <div class="input-group">
+          <label for="loanType">Select Loan Type:</label>
+          <select id="loanType" required>
+            <option value="">-- Select Loan --</option>
+            <option value="Home Loan">Home Loan</option>
+            <option value="Personal Loan">Personal Loan</option>
+            <option value="Education Loan">Education Loan</option>
+            <option value="Car Loan">Car Loan</option>
+            <option value="Gold Loan">Gold Loan</option>
+            <option value="Business Loan">Business Loan</option>
+            <option value="Agriculture Loan">Agriculture Loan</option>
+            <option value="Loan Against Property">Loan Against Property</option>
+            <option value="Consumer Durable Loan">Consumer Durable Loan</option>
+            <option value="Credit Card Loan">Credit Card Loan</option>
+            <option value="Overdraft / Cash Credit">
+              Overdraft / Cash Credit
+            </option>
+            <option value="Working Capital Loan">Working Capital Loan</option>
+            <option value="Microfinance Loan">Microfinance Loan</option>
+            <option value="Mudra Loan">Mudra Loan</option>
+            <option value="Top-up Loan">Top-up Loan</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="minCIBIL">Your CIBIL Score (e.g., 750):</label>
+          <input
+            type="number"
+            id="minCIBIL"
+            placeholder="Minimum CIBIL Score"
+            min="300"
+            max="900"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <label for="monthlyIncome">Your Net Monthly Income (₹):</label>
+          <input
+            type="number"
+            id="monthlyIncome"
+            placeholder="Min. Income in ₹"
+            min="10000"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <label for="maxLoan">Max Loan Amount Desired (₹):</label>
+          <input
+            type="number"
+            id="maxLoan"
+            placeholder="Max Loan Amount in ₹"
+            min="5000000"
+            required
+          />
+        </div>
+        <button type="submit" class="login-btn" style="grid-column: 1 / -1">
+          Check Eligibility
+        </button>
+      </form>
+
+      <h3>Eligible Loan Offers:</h3>
+      <div id="resultsContainer">
+        <p id="noResults">
+          Please enter your details and click 'Check Eligibility'.
+        </p>
+        <table
+          class="results-table"
+          id="eligibilityResults"
+          style="display: none"
+        >
+          <thead>
+            <tr>
+              <th>Bank</th>
+              <th>Interest Rate (%)</th>
+              <th>Min. CIBIL Required</th>
+              <th>Min. Income Required (₹)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="banks.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

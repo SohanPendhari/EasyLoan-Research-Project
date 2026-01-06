@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Beautiful EMI Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f6fa;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.596);
+        max-width: 900px;
+        width: 100%;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .back-btn {
+        padding: 8px 15px;
+        background-color: #1976d2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: fit-content;
+      }
+
+      .back-btn:hover {
+        opacity: 0.8;
+      }
+
+      .title {
+        text-align: center;
+        font-size: 26px;
+        font-weight: bold;
+        color: #222;
+      }
+
+      .calculator {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+      }
+
+      .inputs {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .input-group {
+        margin-bottom: 20px;
+      }
+
+      .input-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #333;
+      }
+
+      .input-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .input-row input[type="range"] {
+        flex: 1;
+      }
+
+      .input-row input[type="number"] {
+        width: 100px;
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+
+      .chart {
+        flex: 1;
+        min-width: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .results-card {
+        background: linear-gradient(135deg, #0d47a1, #1976d2);
+        padding: 25px;
+        border-radius: 12px;
+        color: white;
+        text-align: left;
+      }
+
+      .results-card h3 {
+        font-weight: normal;
+        margin: 0 0 10px;
+      }
+
+      .results-card .emi-value {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .results-row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+
+      .results-row div {
+        font-size: 16px;
+      }
+
+      .results-footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+
+      .results-footer a {
+        color: orange;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .results-footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .calculator {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Back Button -->
+      <div>
+        <button class="back-btn" onclick="history.back()">← Back</button>
+      </div>
+
+      <div class="title">💰 EMI Calculator</div>
+
+      <div class="calculator">
+        <!-- Left Side Inputs -->
+        <div class="inputs">
+          <div class="input-group">
+            <label>Loan Amount (₹)</label>
+            <div class="input-row">
+              <input
+                type="range"
+                id="loanRange"
+                min="50000"
+                max="10000000"
+                step="50000"
+                value="500000"
+              />
+              <input type="number" id="loanInput" value="500000" />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Interest Rate (%)</label>
+            <div class="input-row">
+              <input
+                type="range"
+                id="rateRange"
+                min="1"
+                max="20"
+                step="0.1"
+                value="10"
+              />
+              <input type="number" id="rateInput" value="10" step="0.1" />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Loan Duration (Years)</label>
+            <div class="input-row">
+              <input
+                type="range"
+                id="timeRange"
+                min="1"
+                max="30"
+                step="1"
+                value="10"
+              />
+              <input type="number" id="timeInput" value="10" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Chart -->
+        <div class="chart">
+          <canvas id="chart" width="250" height="250"></canvas>
+        </div>
+      </div>
+
+      <!-- Results Card -->
+      <div class="results-card">
+        <h3>Your EMI is</h3>
+        <div class="emi-value" id="emiCard">₹ 0</div>
+        <hr style="border: 1px solid rgba(255, 255, 255, 0.3)" />
+
+        <div class="results-row">
+          <div>● Total Interest<br /><span id="interestCard">₹ 0</span></div>
+          <div>● Total Amount Payable<br /><span id="totalCard">₹ 0</span></div>
+        </div>
+
+        <div class="results-footer">
+          <a href="#">View Repayment Schedule</a>
+          <a href="#">Apply Now</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const loanRange = document.getElementById("loanRange");
+      const loanInput = document.getElementById("loanInput");
+      const rateRange = document.getElementById("rateRange");
+      const rateInput = document.getElementById("rateInput");
+      const timeRange = document.getElementById("timeRange");
+      const timeInput = document.getElementById("timeInput");
+
+      const emiCard = document.getElementById("emiCard");
+      const interestCard = document.getElementById("interestCard");
+      const totalCard = document.getElementById("totalCard");
+
+      const chartCtx = document.getElementById("chart").getContext("2d");
+      const chart = new Chart(chartCtx, {
+        type: "doughnut",
+        data: {
+          labels: ["Principal", "Interest"],
+          datasets: [
+            {
+              data: [0, 0],
+              backgroundColor: ["#ff7043", "#42a5f5"],
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: { color: "#333" },
+            },
+          },
+        },
+      });
+
+      function calculateEMI() {
+        let P = parseFloat(loanInput.value);
+        let R = parseFloat(rateInput.value);
+        let N = parseInt(timeInput.value);
+
+        let r = R / 12 / 100;
+        let n = N * 12;
+
+        let emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+        let total = emi * n;
+        let interest = total - P;
+
+        emiCard.innerText = "₹ " + Math.round(emi).toLocaleString();
+        interestCard.innerText = "₹ " + Math.round(interest).toLocaleString();
+        totalCard.innerText = "₹ " + Math.round(total).toLocaleString();
+
+        chart.data.datasets[0].data = [P, interest];
+        chart.update();
+      }
+
+      // Sync sliders and inputs
+      loanRange.addEventListener("input", () => {
+        loanInput.value = loanRange.value;
+        calculateEMI();
+      });
+      loanInput.addEventListener("input", () => {
+        loanRange.value = loanInput.value;
+        calculateEMI();
+      });
+
+      rateRange.addEventListener("input", () => {
+        rateInput.value = rateRange.value;
+        calculateEMI();
+      });
+      rateInput.addEventListener("input", () => {
+        rateRange.value = rateInput.value;
+        calculateEMI();
+      });
+
+      timeRange.addEventListener("input", () => {
+        timeInput.value = timeRange.value;
+        calculateEMI();
+      });
+      timeInput.addEventListener("input", () => {
+        timeRange.value = timeInput.value;
+        calculateEMI();
+      });
+
+      // Initial Calculation
+      calculateEMI();
+    </script>
+  </body>
+</html>

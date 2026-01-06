@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | EasyLoan</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+      }
+      .hero {
+        background: linear-gradient(135deg, #2c3e50, #2980b9);
+        color: #fff;
+        text-align: center;
+        padding: 80px 20px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        animation: slideDown 1s ease;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background: #f39c12;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background 0.3s, transform 0.3s;
+      }
+      .btn:hover {
+        background: #d98208;
+        transform: scale(1.05);
+      }
+      section {
+        max-width: 1100px;
+        margin: auto;
+        padding: 50px 20px;
+      }
+      h2 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 30px;
+      }
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+      .feature {
+        background: #fff;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      }
+      .feature i {
+        font-size: 2rem;
+        color: #2980b9;
+        margin-bottom: 10px;
+      }
+      .locked {
+        opacity: 0.6;
+      }
+      .locked::after {
+        content: "🔒 Coming Soon";
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.85rem;
+        color: #e74c3c;
+      }
+      footer {
+        background: #2c3e50;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+      }
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .show { display: block; }
+
+    </style>
+    
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="#" class="logo">EasyLoan</a>
+      <span class="menu-toggle"</span>
+      <ul id="menu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="premium.html">premium</a></li>
+        <li><a href="contactus.html">contact us</a></li>
+        <li><a href="aboutus.html">about us</a></li>
+        <!-- <li class="account">
+          <a href="#"><i class="fa-regular fa-circle-user"></i></a>
+          <div class="dropdown" id="accountMenu">
+            <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+            <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+            <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+          </div>
+        </li> -->
+      </ul>
+    </nav>
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>Welcome to EasyLoan</h1>
+      <p>Explore our AI-powered loan assistance features</p>
+      <a href="premium.html" class="btn">Explore Plans</a>
+    </div>
+
+    <!-- Features Section -->
+    <section>
+      <h2>Our Features</h2>
+      <div class="features">
+        <!-- Unlocked Features -->
+        <div class="feature" onclick="window.location.href='sohan-project-main/static/chat.html'">
+          <i class="fas fa-robot"></i>
+          <h3>AI Chatbot</h3>
+          <p>24/7 virtual assistant guidance.</p>
+        </div>
+        <div
+          class="feature"
+          onclick="window.location.href='document_checker.html'"
+        >
+          <i class="fas fa-check-circle"></i>
+          <h3>Eligibility Check</h3>
+          <p>Check your loan eligibility instantly.</p>
+        </div>
+        <div
+          class="feature"
+          onclick="window.location.href='EMIcal.html'"
+        >
+          <i class="fas fa-calculator"></i>
+          <h3>Loan EMI Calculator</h3>
+          <p>Estimate your monthly payments.</p>
+        </div>
+        <div
+          class="feature"
+          onclick="window.location.href='ranking.html'"
+        >
+          <i class="fas fa-ranking-star"></i>
+          <h3>Smart Loan Ranking</h3>
+          <p>Compare bank offers and choose the best.</p>
+        </div>
+        <div
+          class="feature"
+          onclick="window.location.href='contactus.html'"
+        >
+          <i class="fas fa-envelope"></i>
+          <h3>Email Support</h3>
+          <p>Get quick responses via email.</p>
+        </div>
+        <!-- Locked / Coming Soon Features -->
+        <div
+          class="feature locked"
+          onclick="alert('Branch Locator: Coming Soon!')"
+        >
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>Branch Locator</h3>
+          <p>Find nearest bank branches.</p>
+        </div>
+        <div
+          class="feature locked"
+          onclick="alert('Interest Rate Alerts: Coming Soon!')"
+        >
+          <i class="fas fa-bell"></i>
+          <h3>Interest Rate Alerts</h3>
+          <p>Stay updated with latest rates.</p>
+        </div>
+        <div
+          class="feature locked"
+          onclick="alert('Advanced Analytics: Coming Soon!')"
+        >
+          <i class="fas fa-chart-line"></i>
+          <h3>Advanced Analytics</h3>
+          <p>Detailed insights and graphs.</p>
+        </div>
+        <div
+          class="feature locked"
+          onclick="alert('Multilingual Support: Coming Soon!')"
+        >
+          <i class="fas fa-language"></i>
+          <h3>Multilingual Support</h3>
+          <p>AI guidance in multiple languages.</p>
+        </div>
+        <div
+          class="feature locked"
+          onclick="alert('Secure Document Upload: Coming Soon!')"
+        >
+          <i class="fas fa-file-upload"></i>
+          <h3>Secure Document Upload</h3>
+          <p>Upload required documents securely.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 EasyLoan. All rights reserved.</p>
+    </footer>
+    <script src="logic.js"></script>
+  </body>
+</html>
